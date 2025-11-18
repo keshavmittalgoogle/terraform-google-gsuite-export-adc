@@ -50,9 +50,10 @@ data "template_file" "gsuite_exporter" {
 resource "google_compute_instance" "gsuite_exporter_vm" {
   name                      = var.machine_name
   machine_type              = var.machine_type
-  zone                      = var.machine_zone
+  zone                      = var.zone
   project                   = local.machine_project
   allow_stopping_for_update = true
+  labels                      = var.labels
 
   boot_disk {
     initialize_params {

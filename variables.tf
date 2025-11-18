@@ -50,6 +50,24 @@ variable "project_id" {
   description = "The project to export GSuite data to."
 }
 
+variable "region" {
+  description = "The region to deploy resources in."
+  type        = string
+  default     = "us-central1"
+}
+
+variable "location" {
+  description = "The location to deploy resources in."
+  type        = string
+  default     = "us-central1"
+}
+
+variable "labels" {
+  description = "The labels to apply to resources."
+  type        = map(string)
+  default     = {}
+}
+
 variable "export_filter" {
   description = "The export filter to use in a log export (if any)"
   type        = string
@@ -65,7 +83,7 @@ variable "gsuite_exporter_version" {
 #---------------------------#
 # VM exporter configuration #
 #---------------------------#
-variable "machine_zone" {
+variable "zone" {
   description = "The instance zone"
   type        = string
   default     = "us-central1-a"
